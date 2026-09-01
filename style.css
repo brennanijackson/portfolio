@@ -1,21 +1,38 @@
+/* Core Variables & System Typography */
 :root {
     --bg-main: #121212;
     --bg-card: #1E1E1E;
     --bg-item: #252525;
     --border-color: #333333;
-    --text-primary: #FFFFFF;
-    --text-secondary: #AAAAAA;
-    --text-muted: #888888;
-    --text-caption: #CCCCCC;
-    --accent-glow: rgba(255, 255, 255, 0.15);
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
 }
 
 body {
     background-color: var(--bg-main);
     color: var(--text-primary);
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
-    padding: 40px;
+    padding: 32px;
+}
+
+/* Header & Typography Formatting */
+header {
+    margin-bottom: 32px;
+}
+
+header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 18px 0;
+    letter-spacing: -0.02em;
+}
+
+header hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 0 0 24px 0;
 }
 
 .header {
@@ -63,6 +80,20 @@ h3 {
 
 .live-date {
 	color: var(--text-muted);
+}
+
+.about-section h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 6px 0;
+}
+
+.about-section p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
 }
 
 .section-card {
