@@ -1,4 +1,6 @@
-/* Core Variables & System Typography */
+/* ==========================================================================
+   1. CORE VARIABLES & BASE STYLES
+   ========================================================================== */
 :root {
     --bg-main: #121212;
     --bg-card: #1E1E1E;
@@ -8,15 +10,21 @@
     --text-secondary: #aaaaaa;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: var(--bg-main);
     color: var(--text-primary);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
-    padding: 32px;
+    padding: 40px;
 }
 
-/* Header & Typography Formatting */
+/* ==========================================================================
+   2. HEADER & TYPOGRAPHY
+   ========================================================================== */
 header {
     margin-bottom: 32px;
 }
@@ -27,7 +35,7 @@ header h2 {
     color: var(--text-primary);
     margin: 0 0 18px 0;
     letter-spacing: -0.02em;
-    text-transform: none; /* Prevents CSS from forcing uppercase */
+    text-transform: none; /* Maintains standard upper/lower case */
 }
 
 header hr {
@@ -36,58 +44,12 @@ header hr {
     margin: 0 0 24px 0;
 }
 
-.header {
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 20px;
-    margin-bottom: 40px;
-}
-
-h1 {
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0;
-    letter-spacing: -0.5px;
-}
-
-.campaign-label {
-    color: var(--text-muted);
-    margin-right: 8px;
-}
-
-h2 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-top: 0;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
-}
-
-.live-date {
-	font-size: 12px;
-	font-weight: 450;
-	color: var(--text-muted);
-}
-
-h3 {
-    font-size: 15px;
-    font-weight: 500;
-    margin: 24px 0 16px 0;
-    color: var(--text-primary);
-}
-
-.live-date {
-	color: var(--text-muted);
-}
-
 .about-section h3 {
     font-size: 1rem;
     font-weight: 700;
     color: var(--text-primary);
     margin: 0 0 6px 0;
+    text-transform: none;
 }
 
 .about-section p {
@@ -97,96 +59,63 @@ h3 {
     line-height: 1.4;
 }
 
-.section-card {
-    background-color: var(--bg-card);
-    border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 30px;
-    border: 1px solid var(--border-color);
-}
-
+/* ==========================================================================
+   3. ASSET GRID & CARDS
+   ========================================================================== */
+/* Outer card boundary surrounding the grid */
 .asset-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
 }
 
+/* Individual Asset Card */
 .asset-item {
     background-color: var(--bg-item);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 20px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    height: 300px;
+    align-items: center;
+    justify-content: space-between;
+    height: 320px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .asset-item:hover {
-    transform: scale(1.03);
-    border-color: #555;
-    box-shadow: 0 10px 20px var(--accent-glow);
+    border-color: #555555;
+    transform: translateY(-2px);
 }
 
-.asset-thumbnail {
-    max-width: 100%;
-    max-height: 200px;
+/* Thumbnail image protection (letterboxing wide/tall images) */
+img.asset-thumbnail,
+video.asset-thumbnail {
     object-fit: contain;
-    border-radius: 4px;
-    margin: auto 0;
     pointer-events: none;
-}
-
-.asset-caption {
-    font-size: 0.85rem;
-    color: var(--text-caption);
-    text-align: center;
-    word-wrap: break-word;
-    word-break: break-all;
-    line-height: 1.4;
     width: 100%;
+    height: 200px;
+    background-color: var(--bg-main);
+    border-radius: 4px;
 }
 
-.placeholder {
+.asset-item p {
     color: var(--text-secondary);
-    font-size: 14px;
-    font-style: italic;
-    padding: 10px 0;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 12px 0 0 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.95);
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
+    word-break: break-word;
 }
 
-.modal-content {
-    max-width: 95vw;
-    max-height: 95vh;
-    object-fit: contain;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
-}
-
-.close-modal {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-}
-
-/* Modal Overlay Setup */
+/* ==========================================================================
+   4. CAROUSEL MODAL OVERLAY
+   ========================================================================== */
 .modal {
     position: fixed;
     top: 0;
@@ -205,7 +134,7 @@ h3 {
     position: absolute;
     top: 20px;
     right: 35px;
-    color: #ffffff;
+    color: var(--text-primary);
     font-size: 36px;
     font-weight: bold;
     cursor: pointer;
@@ -216,7 +145,6 @@ h3 {
     opacity: 0.7;
 }
 
-/* Carousel Layout */
 .carousel-container {
     position: relative;
     display: flex;
@@ -233,14 +161,13 @@ h3 {
     border-radius: 4px;
 }
 
-/* Arrow Navigation */
 .nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(30, 30, 30, 0.8);
-    color: #ffffff;
-    border: 1px solid #333333;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
     font-size: 22px;
     padding: 12px 16px;
     cursor: pointer;
@@ -249,8 +176,13 @@ h3 {
     transition: background-color 0.2s;
 }
 
-.nav-btn.prev { left: -60px; }
-.nav-btn.next { right: -60px; }
+.nav-btn.prev {
+    left: -60px;
+}
+
+.nav-btn.next {
+    right: -60px;
+}
 
 .nav-btn:hover {
     background: rgba(255, 255, 255, 0.2);
@@ -258,250 +190,9 @@ h3 {
 
 .caption {
     margin-top: 18px;
-    color: #e0e0e0;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     text-align: center;
     max-width: 600px;
     line-height: 1.4;
-}
-
-.site-header {
-    margin-bottom: 32px;
-}
-
-.site-title {
-    color: #ffffff;
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0 0 16px 0;
-    letter-spacing: -0.02em;
-}
-
-.header-divider {
-    border: 0;
-    border-top: 1px solid #333333;
-    margin: 0 0 24px 0;
-}
-
-.about-title {
-    color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin: 0 0 6px 0;
-}
-
-.about-text {
-    color: #a0a0a0;
-    font-size: 1rem;
-    line-height: 1.4;
-    margin: 0;
-}
-
-/* =========================================
-   Menu Styles (Responsive & Collision Aware)
-========================================= */
-
-.main-menu {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 0 20px;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
-
-.menu-header-brand {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text-primary);
-    padding: 15px 25px 15px 0;
-    border-right: 1px solid var(--border-color);
-    margin-right: 20px;
-    letter-spacing: -0.5px;
-    text-decoration: none;         /* Forces the link to look exactly like the old div */
-    transition: color 0.2s ease;   /* Smoothly animates the mouseover effect */
-}
-
-/* New Mouseover Style Effect */
-.menu-header-brand:hover {
-    color: var(--text-secondary);  /* Dims slightly to your theme's gray to signify it's a link */
-}
-
-.menu-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap; /* Allows menu to wrap if window is narrow */
-    gap: 0px; /* Gap removed to prevent alignment issues with dropdowns */
-}
-
-.menu-item {
-    position: relative;
-}
-
-.menu-link {
-    display: block;
-    padding: 20px 15px;
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.2s ease, background-color 0.2s ease;
-    border-radius: 4px;
-}
-
-.menu-item:hover .menu-link {
-    color: var(--text-primary);
-    background-color: var(--bg-item);
-}
-
-/* Dropdown Base */
-.dropdown,
-.nested-dropdown {
-    list-style: none;
-    margin: 0;
-    padding: 10px 0;
-    position: absolute;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    min-width: 220px;
-    z-index: 100;
-    display: none;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-}
-
-.dropdown {
-    top: 100%;
-    left: 0;
-}
-
-.menu-item:hover > .dropdown {
-    display: block;
-}
-
-.dropdown-link {
-    display: block;
-    padding: 10px 20px;
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 14px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.dropdown-link:hover {
-    background-color: var(--bg-item);
-    color: var(--text-primary);
-}
-
-.nested-menu {
-    position: relative;
-}
-
-.nested-dropdown {
-    top: -11px;
-    left: 100%;
-}
-
-.nested-menu:hover > .nested-dropdown {
-    display: block;
-}
-
-/* Edge Protection: Last 3 items open dropdowns to the left */
-.menu-item:nth-last-child(-n+3) .dropdown {
-    left: auto;
-    right: 0;
-}
-
-.menu-item:nth-last-child(-n+3) .nested-dropdown {
-    left: auto;
-    right: 100%;
-}
-
-/* Mobile/Tablet View (Vertical Stacking) */
-@media (max-width: 900px) {
-    .main-menu {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 0;
-    }
-
-    .menu-header-brand {
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-        width: 100%;
-        padding: 10px 20px;
-        margin: 0;
-    }
-
-    .menu-list {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .menu-link {
-        padding: 15px 20px;
-    }
-
-    /* Change dropdowns from floating to accordion style */
-    .dropdown, .nested-dropdown {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-        border: none;
-        background-color: var(--bg-item);
-        padding-left: 20px;
-    }
-}
-
-/* New style for the link container below headers */
-.header-links {
-    display: flex;
-    gap: 15px;
-    margin-top: -10px; /* Pulls it closer to the header */
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.header-link {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.2s ease;
-}
-
-.header-link:hover {
-    color: var(--text-primary);
-    text-decoration: underline;
-}
-
-/* Style for links that open in a new window */
-.header-link[target="_blank"]::after {
-    /* Encoded SVG: Box with arrow (Standard External Link) */
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23AAAAAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>');
-    margin-left: 6px;
-    vertical-align: middle;
-}
-
-/* Hover state (Turns white to match your primary text) */
-.header-link:hover[target="_blank"]::after {
-    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>');
-}
-
-/* Applies to both your old image thumbs and new video thumbs */
-img.asset-thumbnail,
-video.asset-thumbnail {
-    object-fit: contain;       /* Restores the uncropped, full shape of the asset */
-    pointer-events: none;
-    max-width: 100%;
-    height: 200px;             /* Standardizes the height so captions have room below */
-    background-color: #121212; /* Darker tone to letterbox narrow/wide assets cleanly */
 }
