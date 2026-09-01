@@ -27,6 +27,7 @@ header h2 {
     color: var(--text-primary);
     margin: 0 0 18px 0;
     letter-spacing: -0.02em;
+    text-transform: none; /* Prevents CSS from forcing uppercase */
 }
 
 header hr {
