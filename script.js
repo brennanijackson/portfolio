@@ -1,17 +1,69 @@
+// Master Data Object storing project details and image arrays
 const portfolioData = {
     project1: {
         title: "Project 1 Title",
-        description: "A short description of the project goes here.",
+        description: "A short description of project 1 goes here.",
         images: [
-            "assets/fullsize/project1/img1.jpg",
-            "assets/fullsize/project1/img2.jpg",
-            "assets/fullsize/project1/img3.jpg"
+            "https://picsum.photos/id/1015/800/500",
+            "https://picsum.photos/id/1016/800/500",
+            "https://picsum.photos/id/1018/800/500"
         ]
-    },
-    // Populate project2 through project7 following this exact schema
+    }
+    // Add project2 through project7 here following this exact structure
 };
 
-let currentProject = '';
+let currentProjectKey = null;
 let currentImageIndex = 0;
 
-// Functions for openProject(), closeModal(), and changeImage() will go here.
+// Opens the modal for a specific project
+function openProject(projectId) {
+    if (!portfolioData[projectId]) return;
+
+    currentProjectKey = projectId;
+    currentImageIndex = 0;
+
+    const modal = document.getElementById("assetModal");
+    modal.style.display = "flex";
+
+    updateCarousel();
+}
+
+// Updates the image source and description caption based on active index
+function updateCarousel() {
+    const project = portfolioData[currentProjectKey];
+    const imgElement = document.getElementById("carouselImage");
+    const descElement = document.getElementById("modalDescription");
+
+    if (project && project.images.length > 0) {
+        imgElement.src = project.images[currentImageIndex];
+        descElement.textContent = project.description;
+    }
+}
+
+// Cycles through images with automatic looping
+function changeImage(direction) {
+    if (!currentProjectKey || !portfolioData[currentProjectKey]) return;
+
+    const images = portfolioData[currentProjectKey].images;
+    if (images.length <= 1) return;
+
+    // Loop around if reaching start or end of array
+    currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+    updateCarousel();
+}
+
+// Closes the modal overlay
+function closeModal() {
+    const modal = document.getElementById("assetModal");
+    modal.style.display = "none";
+    currentProjectKey = null;
+    currentImageIndex = 0;
+}
+
+// Dismiss modal when clicking outside the content area
+window.addEventListener("click", function (event) {
+    const modal = document.getElementById("assetModal");
+    if (event.target === modal) {
+        closeModal();
+    }
+});
