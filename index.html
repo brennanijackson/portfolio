@@ -1,11 +1,44 @@
-
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Approval Page</title>
-<meta http-equiv="Refresh" content="0;url=main.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brennan I. Jackson - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>Brennan I. Jackson</h1>
+        <hr>
+        <div class="about-section">
+            <h2>About me</h2>
+            <p>Lorem ipsum dolor, sit amet nonummy.</p>
+        </div>
+    </header>
+
+    <!-- Grid Container for 7 Thumbnails -->
+    <main class="asset-grid">
+        <!-- Example of one thumbnail triggering the JS function -->
+        <div class="asset-item" onclick="openProject('project1')">
+            <img src="thumbs/project1_thumb.jpg" class="asset-thumbnail" alt="Project 1">
+            <p>caption goes here</p>
+        </div>
+        <!-- Add 6 more .asset-item blocks here -->
+    </main>
+
+    <!-- Carousel Modal Structure -->
+    <div id="assetModal" class="modal" style="display: none;">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        
+        <div class="carousel-container">
+            <button class="nav-btn prev" onclick="changeImage(-1)">&#10094;</button>
+            <img id="carouselImage" class="modal-content" src="" alt="Project Image">
+            <button class="nav-btn next" onclick="changeImage(1)">&#10095;</button>
+        </div>
+        
+        <div id="modalDescription" class="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
