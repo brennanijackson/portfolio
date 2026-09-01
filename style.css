@@ -233,6 +233,38 @@ h3 {
     line-height: 1.4;
 }
 
+.site-header {
+    margin-bottom: 32px;
+}
+
+.site-title {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.02em;
+}
+
+.header-divider {
+    border: 0;
+    border-top: 1px solid #333333;
+    margin: 0 0 24px 0;
+}
+
+.about-title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+}
+
+.about-text {
+    color: #a0a0a0;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
 /* =========================================
    Menu Styles (Responsive & Collision Aware)
 ========================================= */
