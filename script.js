@@ -1,12 +1,13 @@
 // Master Data Object storing project details and image arrays
 const portfolioData = {
     project1: {
-        title: "Project 1 Title",
+        title: "Blue Spreads",
         description: "A short description of project 1 goes here.",
         images: [
-            "https://picsum.photos/id/1015/800/500",
-            "https://picsum.photos/id/1016/800/500",
-            "https://picsum.photos/id/1018/800/500"
+            "assets/blue/376_Project3_FINAL-1.jpg",
+            "assets/blue/376_Project3_FINAL-2.jpg",
+            "assets/blue/376_Project3_FINAL-3.jpg"
+            "assets/blue/Des376ProjectThree_2018-1.jpg"
         ]
     }
     // Add project2 through project7 here following this exact structure
