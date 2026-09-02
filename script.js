@@ -5,8 +5,8 @@ const portfolioData = {
         description: "A short description of project 1 goes here.",
         images: [
             "assets/blue/376_Project3_FINAL-1.jpg",
-            "assets/blue/376_Project3_FINAL-1.jpg",
-            "assets/blue/376_Project3_FINAL-1.jpg",
+            "assets/blue/376_Project3_FINAL-2.jpg",
+            "assets/blue/376_Project3_FINAL-3.jpg",
             "assets/blue/Des376ProjectThree_2018-1.jpg"
         ]
     }
