@@ -4,10 +4,10 @@ const portfolioData = {
         title: "Blue Spreads",
         description: "A short description of project 1 goes here.",
         images: [
-            "https://github.com/brennanijackson/portfolio/blob/main/assets/blue/376_Project3_FINAL-1.jpg?raw=true",
-            "https://github.com/brennanijackson/portfolio/blob/main/assets/blue/376_Project3_FINAL-1.jpg?raw=true",
-            "https://github.com/brennanijackson/portfolio/blob/main/assets/blue/376_Project3_FINAL-1.jpg?raw=true"
-            "https://github.com/brennanijackson/portfolio/blob/main/assets/blue/Des376ProjectThree_2018-1.jpg?raw=true"
+            "assets/blue/376_Project3_FINAL-1.jpg",
+            "assets/blue/376_Project3_FINAL-1.jpg",
+            "assets/blue/376_Project3_FINAL-1.jpg",
+            "assets/blue/Des376ProjectThree_2018-1.jpg"
         ]
     }
     // Add project2 through project7 here following this exact structure
